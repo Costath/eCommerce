@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+.grid-container {
+    margin: 2vh 2vw;
+    display: grid;
+    grid-template-rows: 18vh auto 8vh;
+    grid-template-areas: "header"
+                        "content"
+                        "footer";
+}
+
+app-header {
+    grid-area: header;
+}
+
+app-categories-list {
+    grid-area: categories;
+}    
+
+app-items-list {
+    grid-area: items;
+    padding-left: 2vw;
+}
+
+app-items-list > main > h3 {
+    padding-bottom: 2vh;
+}
+
+app-footer {
+    grid-area: footer;
+    /* position: absolute;
+    bottom: 0px; */
+}
+
+app-content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 24vw 24vw 24vw 24vw;
+    grid-template-areas: "categories items items items";
+}

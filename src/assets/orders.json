@@ -1,0 +1,60 @@
+[
+    {
+          "customerId": 1,
+          "orderItems": [
+              {"orderItemId": 1, "orderItemIName": "Baseball", "quantity": 24, "orderItemCost": 9.99},
+              {"orderItemId": 2, "orderItemIName": "Bat", "quantity": 34, "orderItemCost": 19.99}
+          ]
+    },
+    {
+          "customerId": 2,
+          "orderItems": [
+              {"orderItemId": 3, "orderItemIName": "Basketball", "quantity": 32, "orderItemCost": 7.99},
+              {"orderItemId": 4, "orderItemIName": "Shoes", "quantity": 12, "orderItemCost": 199.99}
+          ]
+    },
+    {
+          "customerId": 3,
+          "orderItems": [
+              {"orderItemId": 5, "orderItemIName": "Frisbee", "quantity": 4, "orderItemCost": 2.99},
+              {"orderItemId": 6, "orderItemIName": "Hat", "quantity": 1, "orderItemCost": 5.99}
+          ]
+    },
+    {
+          "customerId": 4,
+          "orderItems": [
+              {"orderItemId": 7, "orderItemIName": "Boomerang", "quantity": 5, "orderItemCost": 29.99},
+              {"orderItemId": 8, "orderItemIName": "Helmet", "quantity": 4, "orderItemCost": 19.99},
+              {"orderItemId": 9, "orderItemIName": "Kangaroo Saddle", "quantity": 234, "orderItemCost": 179.99}
+          ]
+    },
+    {
+          "customerId": 5,
+          "orderItems": [
+              {"orderItemId": 10, "orderItemIName": "Budgie Smugglers", "quantity": 34, "orderItemCost": 19.99},
+              {"orderItemId": 11, "orderItemIName": "Swimming Cap", "quantity": 33, "orderItemCost": 5.49}
+          ]
+    },
+    {
+          "customerId": 6,
+          "orderItems": [
+              {"orderItemId": 12, "orderItemIName": "Bow", "quantity": 23, "orderItemCost": 399.99},
+              {"orderItemId": 13, "orderItemIName": "Arrows", "quantity": 200, "orderItemCost": 69.99}
+          ]
+    },
+    {
+          "customerId": 7,
+          "orderItems": [
+              {"orderItemId": 14, "orderItemIName": "Surfboard", "quantity": 54, "orderItemCost": 299.99},
+              {"orderItemId": 15, "orderItemIName": "Wax", "quantity": 100, "orderItemCost": 5.99},
+              {"orderItemId": 16, "orderItemIName": "Shark Repellent", "quantity": 30, "orderItemCost": 15.99}
+          ]
+    },
+    {
+          "customerId": 8,
+          "orderItems": [
+              {"orderItemId": 17, "orderItemIName": "Saddle", "quantity": 10, "orderItemCost": 599.99},
+              {"orderItemId": 18, "orderItemIName": "Riding cap", "quantity": 27, "orderItemCost": 79.99}
+          ]
+    }
+]

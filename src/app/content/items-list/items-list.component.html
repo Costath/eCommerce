@@ -1,0 +1,20 @@
+<main>
+  <h3 *ngIf="category"> Filters: <span class="badge-info rounded p-2"> {{ category }} <sup class="btn" [routerLink]="['/products']">X</sup></span></h3>
+  <h3 *ngIf="!category">All products</h3>
+  <div class="card-columns">
+    <div class="card" *ngFor="let product of products">
+      <h4 class="card-header">product image</h4>
+      <div class="card-body" *ngIf="product.quantity">
+        <h5> {{ product.orderItemIName }} </h5>
+        <p class="mb-0">Price: {{ product.orderItemCost}} </p>
+        <p>Quantity on stock {{ product.quantity }} </p>
+        <button>Add to cart</button>
+      </div>
+      <div class="card-body" *ngIf="!product.quantity">
+        <h5> {{ product.orderItemIName }} </h5>
+        <p>Out of stock :(</p>
+      </div>
+    </div>
+  </div>
+</main>
+  

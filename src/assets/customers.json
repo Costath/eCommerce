@@ -1,0 +1,26 @@
+[
+    {
+        "customerId": 1,
+        "name": "ted James",
+        "adress": "123 Phoenix Ave",
+        "orderId": 3
+  },
+  {
+        "id": 2,
+        "name": "Michelle Thompson",
+        "adress": "432 Los Angeles Rd",
+        "orderId": 4
+  },
+  {
+        "id": 3,
+        "name": "James Thomas",
+        "adress": "444 Las Vegas Rd",
+        "orderId": 1
+  },
+  {
+        "id": 4,
+        "name": "Tina Adams",
+        "adress": "23 Seattle St",
+        "orderId": 2
+  }
+]
