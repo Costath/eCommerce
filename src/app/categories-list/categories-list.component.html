@@ -1,13 +1,13 @@
 <aside>
-    <nav>
+    <nav *ngIf="isRouterLinkActive">
         <h4>Categories</h4>
-        <ul class="list-group" *ngIf="isRouterLinkActive">
-            <!-- <li class="list-group-item"><div>Categories</div></li> -->
-            <!-- <li class="list-group-item">Categories</li> -->
+        <ul class="list-group">
             <li class="list-group-item" *ngFor="let cat of categories" [routerLink]="['/products', cat]" 
                                                                         routerLinkActive="active">{{ cat }}</li>
         </ul>
-        <ul class="list-group" *ngIf="!isRouterLinkActive">
+    </nav>
+    <nav *ngIf="!isRouterLinkActive">
+        <ul class="list-group list-group-horizontal" *ngIf="!isRouterLinkActive">
             <li class="list-group-item" *ngFor="let cat of categories" [routerLink]="['/products', cat]" 
                                                                         routerLinkActive="">{{ cat }}</li>
         </ul>
