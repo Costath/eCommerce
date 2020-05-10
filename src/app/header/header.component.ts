@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CategoriesListComponent } from '../content/categories-list/categories-list.component';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

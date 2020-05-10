@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { DataService } from '../../core/data.service';
+import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'app-categories-list',

@@ -9,5 +9,10 @@ import { DataService } from '../core/data.service';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
-export class ContentComponent {
+export class ContentComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 }

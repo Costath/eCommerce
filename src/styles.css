@@ -13,7 +13,7 @@ app-header {
 
 app-categories-list {
     grid-area: categories;
-}    
+}
 
 app-items-list {
     grid-area: items;
@@ -36,3 +36,4 @@ app-content {
     grid-template-columns: 24vw 24vw 24vw 24vw;
     grid-template-areas: "categories items items items";
 }
+
