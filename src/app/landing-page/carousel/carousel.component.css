@@ -1,0 +1,17 @@
+img {
+    width: 70vw;
+    height: 70vh;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-control-prev:hover{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-control-next:hover{
+    background: rgba(0, 0, 0, 0.7);
+}

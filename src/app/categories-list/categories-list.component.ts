@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { DataService } from '../core/data.service';
@@ -10,6 +10,15 @@ import { DataService } from '../core/data.service';
 })
 export class CategoriesListComponent implements OnInit {
   categories: any[] = [];
+
+  private RouterLinkActive: boolean;
+  @Input() get isRouterLinkActive() {
+    return this.RouterLinkActive;
+  }
+
+  set isRouterLinkActive(value: boolean) {
+    this.RouterLinkActive = value;
+  }
 
   constructor(private dataService: DataService,
               private route: ActivatedRoute) {}

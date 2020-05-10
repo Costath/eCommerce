@@ -1,7 +1,11 @@
+* {
+    outline: none;
+}
+
 .grid-container {
     margin: 2vh 2vw;
     display: grid;
-    grid-template-rows: 18vh auto 8vh;
+    grid-template-rows: auto auto 8vh;
     grid-template-areas: "header"
                         "content"
                         "footer";
@@ -11,13 +15,18 @@ app-header {
     grid-area: header;
 }
 
+app-landing-page{
+    grid-area: content;
+}
+
 app-categories-list {
     grid-area: categories;
 }
 
 app-items-list {
     grid-area: items;
-    padding-left: 2vw;
+    /* padding-left: 2vw; */
+    border-left: 1px darkgray solid;
 }
 
 app-items-list > main > h3 {
