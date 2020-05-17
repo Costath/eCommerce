@@ -12,6 +12,7 @@ h4 {
 
 li:hover {
     cursor: pointer;
+    background-color: #17a3b817;
 }
 
 li.active {
