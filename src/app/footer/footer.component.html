@@ -1,3 +1,12 @@
 <footer>
-<p>footer works!</p>
+        <ul class="list-group list-group-horizontal justify-content-center ">
+            <li class="list-group-item" [routerLink]="['/']" 
+                                        routerLinkActive="">Home</li>
+            <li class="list-group-item" [routerLink]="['/contact']" 
+                                        routerLinkActive="">Contact</li>
+            <li class="list-group-item" ><a href="https://www.linkedin.com/in/devthalescosta/" target="_blank">LinkedIn</a></li>
+            <li class="list-group-item" ><a href="https://github.com/Costath" target="_blank">GitHub</a></li>
+            <li class="list-group-item" [routerLink]="['/about']" 
+                                        routerLinkActive="">About</li>
+        </ul>
 </footer>
