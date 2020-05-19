@@ -1,0 +1,16 @@
+div {
+    padding-top: 20vh;
+    margin: auto;
+    width: 50vw;
+    height: 20vh;
+    text-align: center;
+}
+
+#githubImg {
+    background-color: black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 50%;
+    border-width: 1px;
+    
+}
