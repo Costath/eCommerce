@@ -1,15 +1,17 @@
 <aside>
-    <nav *ngIf="isRouterLinkActive">
+    <nav *ngIf="useRouterLinkActive">
         <h4>Categories</h4>
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let cat of categories" [routerLink]="['/products', cat]" 
                                                                         routerLinkActive="active">{{ cat }}</li>
         </ul>
     </nav>
-    <nav *ngIf="!isRouterLinkActive">
-        <ul class="list-group list-group-horizontal" *ngIf="!isRouterLinkActive">
+    <nav *ngIf="!useRouterLinkActive">
+        <ul class="list-group list-group-horizontal">
             <li class="list-group-item" *ngFor="let cat of categories" [routerLink]="['/products', cat]" 
                                                                         routerLinkActive="">{{ cat }}</li>
+            <li class="list-group-item" [routerLink]="['/products']" 
+                                        routerLinkActive="">All Products</li>
         </ul>
     </nav>
 </aside>

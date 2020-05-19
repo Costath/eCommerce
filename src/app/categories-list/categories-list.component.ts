@@ -12,11 +12,11 @@ export class CategoriesListComponent implements OnInit {
   categories: any[] = [];
 
   private RouterLinkActive: boolean;
-  @Input() get isRouterLinkActive() {
+  @Input() get useRouterLinkActive() {
     return this.RouterLinkActive;
   }
 
-  set isRouterLinkActive(value: boolean) {
+  set useRouterLinkActive(value: boolean) {
     this.RouterLinkActive = value;
   }
 
