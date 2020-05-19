@@ -3,9 +3,10 @@
 }
 
 .grid-container {
-    margin: 2vh 2vw;
+    position: static;
+    min-height: 100vh;
     display: grid;
-    grid-template-rows: auto auto 8vh;
+    grid-template-rows: auto auto 3vh;
     grid-template-areas: "header"
                         "content"
                         "footer";
@@ -13,9 +14,11 @@
 
 app-header {
     grid-area: header;
+    min-height: 20vh;
 }
 
 app-landing-page{
+    min-height: 77vh;
     grid-area: content;
 }
 
@@ -25,7 +28,6 @@ app-categories-list {
 
 app-items-list {
     grid-area: items;
-    /* padding-left: 2vw; */
     border-left: 1px darkgray solid;
 }
 
@@ -35,11 +37,11 @@ app-items-list > main > h3 {
 
 app-footer {
     grid-area: footer;
-    /* position: absolute;
-    bottom: 0px; */
 }
 
 app-content {
+    min-height: 73vh;
+    margin-bottom: 4vh;
     grid-area: content;
     display: grid;
     grid-template-columns: 24vw 24vw 24vw 24vw;
