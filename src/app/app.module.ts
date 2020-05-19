@@ -9,11 +9,15 @@ import { CoreModule } from './core/core.module';
 import { HeaderModule } from './header/header.module';
 import { ContentModule } from './content/content.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
+import { ContactPageComponent } from './contact-page/contact-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
+    FooterComponent,
+    ContactPageComponent,
+    AboutPageComponent
   ],
   imports: [
     NgbModule,
