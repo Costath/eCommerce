@@ -17,9 +17,19 @@ app-header {
     min-height: 20vh;
 }
 
-app-landing-page{
-    min-height: 77vh;
+app-landing-page,
+app-content,
+app-about-page,
+app-contact-page
+{
     grid-area: content;
+
+}
+
+app-landing-page,
+app-about-page,
+app-contact-page{
+    min-height: 77vh;
 }
 
 app-categories-list {
@@ -42,9 +52,7 @@ app-footer {
 app-content {
     min-height: 73vh;
     margin-bottom: 4vh;
-    grid-area: content;
     display: grid;
     grid-template-columns: 24vw 24vw 24vw 24vw;
     grid-template-areas: "categories items items items";
 }
-
