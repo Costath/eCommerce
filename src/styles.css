@@ -20,7 +20,8 @@ app-header {
 app-landing-page,
 app-content,
 app-about-page,
-app-contact-page
+app-contact-page,
+app-cart-page
 {
     grid-area: content;
 

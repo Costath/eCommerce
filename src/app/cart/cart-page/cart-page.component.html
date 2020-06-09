@@ -1,0 +1,9 @@
+<ul>
+    <li *ngFor="let product of products">
+        name: {{ product.name }} | 
+        qty: {{ product.quantity }} | 
+        category: {{ product.category }} | 
+        <!-- description: {{ product.description.slice(0, 10) }} |  -->
+        cost: {{ product.cost | currency }}
+    </li>
+</ul>

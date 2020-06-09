@@ -11,6 +11,7 @@ import { ContentModule } from './content/content.module';
 import { LandingPageModule } from './landing-page/landing-page.module';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { AboutPageComponent } from './about-page/about-page.component';
     CoreModule,
     ContentModule,
     HeaderModule,
-    LandingPageModule
+    LandingPageModule,
+    CartModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -8,11 +8,11 @@ export interface ICustomer {
 
 export interface IProduct {
     productId: number;
+    category: string;
     name: string;
     quantity: number;
     description: string;
     cost: number;
-    category: string;
 }
 
 export interface IOrder {
@@ -25,4 +25,9 @@ export interface IOrderItem {
     orderItemIName: string;
     quantity: number;
     orderItemCost: number;
+}
+
+export interface ICartProduct {
+    productId: number;
+    quantity: number;
 }

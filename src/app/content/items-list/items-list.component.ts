@@ -3,7 +3,7 @@ import { Router, ActivatedRoute, Params, ParamMap } from '@angular/router';
 
 import { IProduct } from '../../shared/interfaces';
 import { DataService } from '../../core/data.service';
-import { switchMap } from 'rxjs/operators';
+import { CartService } from '../../core/cart.service';
 
 @Component({
   selector: 'app-items-list',
@@ -15,6 +15,7 @@ export class ItemsListComponent implements OnInit {
   category: string;
 
   constructor(private dataService: DataService,
+              private cartService: CartService,
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -30,5 +31,9 @@ export class ItemsListComponent implements OnInit {
                 .subscribe((productsList: IProduct[]) => this.products = productsList);
             }
         });
+  }
+
+  addItem(product: IProduct) {
+    this.cartService.addItem(product);
   }
 }
