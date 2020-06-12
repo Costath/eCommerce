@@ -1,9 +1,8 @@
-<ul>
-    <li *ngFor="let product of products">
-        name: {{ product.name }} | 
-        qty: {{ product.quantity }} | 
-        category: {{ product.category }} | 
-        <!-- description: {{ product.description.slice(0, 10) }} |  -->
-        cost: {{ product.cost | currency }}
-    </li>
-</ul>
+<div class="container">
+    <p *ngIf="!cartProducts.length">Add some products to your cart and you'll find them here :)</p>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let product of cartProducts">
+            <app-cart-item [cartItem]="product" (delete)="removeItem($event)"></app-cart-item>
+        </li>
+    </ul>
+</div>

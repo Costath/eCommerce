@@ -1,0 +1,4 @@
+<strong>{{ cartItem.name }}</strong> {{ cartItem.cost | currency }} <br />
+qty: {{ cartItem.quantity }} | category: {{ cartItem.category }}
+<div class="btn btn-outline-danger" *ngIf="cartItem.quantity == 1" (click)="onDelete()">Remove item</div>
+<div class="btn btn-outline-danger" *ngIf="cartItem.quantity > 1" (click)="onDelete()">Remove 1 unit</div>
