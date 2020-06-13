@@ -3,3 +3,7 @@ div.container {
     margin-left: 15vw;
     margin-right: 15vw;
 }
+
+p {
+    text-align: center;
+}

@@ -29,7 +29,9 @@ app-cart-page
 
 app-landing-page,
 app-about-page,
-app-contact-page{
+app-contact-page,
+app-cart-page
+{
     min-height: 75vh;
 }
 
