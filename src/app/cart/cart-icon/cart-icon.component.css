@@ -1,4 +1,4 @@
-div {
+div#baloon {
     width: 1.1em;
     height: 1.1em;
     color: white;
@@ -13,9 +13,15 @@ div {
     right: 4vw;
 }
 
-div span {
+div#baloon span {
     font-size: .8em;
     vertical-align: super;
+}
+
+div#label {
+    display: inline-block;
+    position: absolute;
+    right: 4vw;
 }
 
 img {

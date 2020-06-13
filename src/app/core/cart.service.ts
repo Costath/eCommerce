@@ -1,6 +1,4 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { RouteReuseStrategy } from '@angular/router';
-import { Observable } from 'rxjs';
 
 import { ICartItem } from '../shared/interfaces';
 import { IProduct } from '../shared/interfaces';
@@ -12,7 +10,7 @@ import { DataService } from '../core/data.service';
 export class CartService {
   @Output() updateCartQty = new EventEmitter();
   cartQty = 0;
-  // cartQty: Observable<number>;
+
   constructor(private dataService: DataService) { }
 
   addItem(product: IProduct){
@@ -79,46 +77,17 @@ export class CartService {
   }
 
   countItems() {
-  // countItems(): Observable<number> {
-    // const items: any[] = JSON.parse(localStorage.getItem('cart'));
-    // const itemsQty = new Observable<number> (observer => {
-    //   if (items){
-    //     if (items.length > 1) {
-    //       this.cartQty = items.length;
-    //     }else {
-    //       this.cartQty = 1;
-    //     }
-    //   }else {
-    //     this.cartQty = 0;
-    //   }
-    //   // this.updateCartQty.emit(this.cartQty);
-    //   observer.next(this.cartQty);
-    // });
-
-    // return itemsQty;
-
-    // if (items){
-    //   if (items.length > 1) {
-    //     this.cartQty = items.length;
-    //     return this.cartQty;
-    //   }else {
-    //     this.cartQty = 1;
-    //     return this.cartQty;
-    //   }
-    // }
-    // this.cartQty = 0;
-    // return this.cartQty;
-
     const items: any[] = JSON.parse(localStorage.getItem('cart'));
 
     if (items){
       if (items.length > 1) {
-        return items.length;
+        this.cartQty = items.length;
       }else {
-        return 1;
+        this.cartQty = 1;
       }
     }else {
-      return 0;
+      this.cartQty = 0;
     }
+    this.updateCartQty.emit(this.cartQty);
   }
 }

@@ -1,4 +1,5 @@
-<div *ngIf="itemsQty"><span>{{ itemsQty }}</span></div>
+<div id="baloon" *ngIf="itemsQty"><span>{{ itemsQty }}</span></div>
+<div id="label" *ngIf="!itemsQty"><span>Cart</span></div>
 <img src="../../../assets/images/cart.png" 
             alt="cart" 
             [routerLink]="['/cart']" 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { IProduct } from '../../shared/interfaces';
 import { DataService } from '../../core/data.service';
@@ -35,5 +35,6 @@ export class ItemsListComponent implements OnInit {
 
   addItem(product: IProduct) {
     this.cartService.addItem(product);
+    this.cartService.countItems();
   }
 }

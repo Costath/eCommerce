@@ -51,9 +51,9 @@ export class CartPageComponent implements OnInit {
 
   removeItem(product: IProduct){
     this.cartService.removeItem(product);
+    this.cartService.countItems();
 
     const index = this.cartProducts.indexOf(product);
-    // this.cartProducts.splice(index, 1);
     if (product.quantity > 1) {
       product.quantity--;
       this.cartProducts.splice(index, 1, product);
