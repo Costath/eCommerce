@@ -1,12 +1,14 @@
 * {
     outline: none;
+    /* overflow-x: hidden; */
 }
 
 .grid-container {
     position: static;
     min-height: 100vh;
+    max-width: 100vw;
     display: grid;
-    grid-template-rows: auto auto 3vh;
+    grid-template-rows: auto auto 4vh;
     grid-template-areas: "header"
                         "content"
                         "footer";
@@ -15,24 +17,27 @@
 app-header {
     grid-area: header;
     min-height: 22vh;
+    overflow-x: hidden;
 }
 
 app-landing-page,
 app-content,
 app-about-page,
 app-contact-page,
-app-cart-page
+app-cart-page,
+router-outlet
 {
     grid-area: content;
-
+    overflow-x: hidden;
 }
 
 app-landing-page,
 app-about-page,
 app-contact-page,
-app-cart-page
+app-cart-page,
+router-outlet
 {
-    min-height: 75vh;
+    height: 74vh;
 }
 
 app-categories-list {
@@ -54,8 +59,7 @@ app-footer {
 
 app-content {
     min-height: 71vh;
-    margin-bottom: 4vh;
     display: grid;
-    grid-template-columns: 24vw 24vw 24vw 24vw;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
     grid-template-areas: "categories items items items";
 }

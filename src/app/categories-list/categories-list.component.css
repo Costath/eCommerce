@@ -22,7 +22,7 @@ li.active {
 .list-group-horizontal {
     width: 100vw;
     justify-content: center;
-    padding-bottom: 3vh;
+    /* padding-bottom: 3vh; */
     display: inline-flex;
 }
 
