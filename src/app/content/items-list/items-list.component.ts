@@ -36,5 +36,9 @@ export class ItemsListComponent implements OnInit {
   addItem(product: IProduct) {
     this.cartService.addItem(product);
     this.cartService.countItems();
+
+    const index = this.products.indexOf(product);
+    product.quantity --;
+    this.products.splice(index, 1, product);
   }
 }
