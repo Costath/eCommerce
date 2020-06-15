@@ -5,4 +5,7 @@
             <app-cart-item [cartItem]="product" (delete)="removeItem($event)"></app-cart-item>
         </li>
     </ul>
+    <h5 *ngIf="cartProducts.length" class="totalValue">
+        Total: {{ cartTotal | currency }}
+    </h5>
 </div>

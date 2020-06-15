@@ -6,4 +6,11 @@ div.container {
 
 p {
     text-align: center;
+    margin-top: 5vw;
+}
+
+h5.totalValue {
+    float: right;
+    margin-right: 2vw;
+    margin-top: 3vw;
 }

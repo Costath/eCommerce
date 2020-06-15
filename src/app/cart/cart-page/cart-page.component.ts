@@ -13,6 +13,7 @@ import { DataService } from '../../core/data.service';
 export class CartPageComponent implements OnInit {
   cartProducts: IProduct[] = [];
   cartProductsRaw: any[] = [];
+  cartTotal = 0;
 
   @Output() delete = new EventEmitter();
 
@@ -47,6 +48,7 @@ export class CartPageComponent implements OnInit {
       cost: warehouseItem.cost
     };
     this.cartProducts.push(newProd);
+    this.cartTotal += newProd.cost * newProd.quantity;
   }
 
   removeItem(product: IProduct){
@@ -60,5 +62,6 @@ export class CartPageComponent implements OnInit {
     }else {
       this.cartProducts.splice(index, 1);
     }
+    this.cartTotal -= product.cost;
   }
 }
