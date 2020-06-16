@@ -1,10 +1,13 @@
 <main>
-  <h3 *ngIf="category"> Filters: 
-    <span class="badge-info rounded p-1">
+  <h3 *ngIf="category || searchText"> Filters: 
+    <span *ngIf="category" class="badge-info rounded p-1">
       {{ category }} <sup class="btn p-0" [routerLink]="['/products']">X</sup>
+    </span> &nbsp;
+    <span *ngIf="searchText"class="badge-info rounded p-1">
+      {{ searchText }} <sup class="btn p-0" (click)="clearSearchText()">X</sup>
     </span>
   </h3>
-  <h3 *ngIf="!category">All products</h3>
+  <h3 *ngIf="!category && !searchText">All products</h3>
   <div class="card-columns">
     <div class="card" *ngFor="let product of products">
         <h5 class="card-header"> {{ product.name }} </h5>

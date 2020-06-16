@@ -1,3 +1,25 @@
 * {
     padding: 2.5vw;
 }
+
+app-items-list {
+    grid-area: items;
+    border-left: 1px darkgray solid;
+}
+
+#filters {
+    display: grid;
+    grid-template-rows: 50vh 14vh;
+    grid-template-areas: "categories"
+                         "searchByName";
+}
+
+app-categories-list {
+    grid-area: categories;
+    padding-top: 0;
+}
+
+app-search-box {
+    grid-area: searchByName;
+    padding-top: 0;
+}

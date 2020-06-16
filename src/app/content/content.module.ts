@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { ContentComponent } from './content.component';
-import { CategoriesListModule } from '../categories-list/categories-list.module';
+import { FiltersModule } from '../filters/filters.module';
 import { ItemsListComponent } from './items-list/items-list.component';
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -16,7 +16,7 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    CategoriesListModule
+    FiltersModule
   ]
 })
 export class ContentModule { }

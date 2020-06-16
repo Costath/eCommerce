@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IProduct } from '../../shared/interfaces';
@@ -11,27 +11,48 @@ import { CartService } from '../../core/cart.service';
   styleUrls: ['./items-list.component.css']
 })
 export class ItemsListComponent implements OnInit {
-  products: any[] = [];
+  products: IProduct[] = [];
   category: string;
+  searchText: string;
+
+  @Output() searchTextChanged = new EventEmitter();
+
+  private Search: string;
+  @Input() get search() {
+    return this.Search;
+  }
+  set search(val: string) {
+    this.Search = val;
+    this.searchTextChanged.emit(this.Search);
+  }
 
   constructor(private dataService: DataService,
               private cartService: CartService,
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.paramMap
-        .subscribe(data => {
-            this.category = data.get('id');
+    // this.filterCategory();
+    this.filter(this.searchText);
 
-            if (this.category) {
-              this.dataService.getFilteredProducts(this.category)
-                .subscribe((productsList: IProduct[]) => this.products = productsList);
-            }else{
-              this.dataService.getProducts()
-                .subscribe((productsList: IProduct[]) => this.products = productsList);
-            }
-        });
+    this.searchTextChanged
+        .subscribe((searchText: string) => this.filter(searchText));
   }
+
+  // private filterCategory() {
+  //   this.route.paramMap
+  //     .subscribe(data => {
+  //       this.category = data.get('cat');
+
+  //       if (this.category) {
+  //         this.dataService.getProductsByCategory(this.category)
+  //           .subscribe((productsList: IProduct[]) => this.products = productsList);
+  //       }
+  //       else {
+  //         this.dataService.getProducts()
+  //           .subscribe((productsList: IProduct[]) => this.products = productsList);
+  //       }
+  //     });
+  // }
 
   addItem(product: IProduct) {
     this.cartService.addItem(product);
@@ -40,5 +61,42 @@ export class ItemsListComponent implements OnInit {
     const index = this.products.indexOf(product);
     product.quantity --;
     this.products.splice(index, 1, product);
+  }
+
+  filter(searchText) {
+    this.route.paramMap
+      .subscribe(data => {
+        this.category = data.get('cat');
+
+        this.searchText = searchText;
+
+        if (searchText && this.category) {
+          this.dataService.getProductsByCategory(this.category)
+          .subscribe((productsList: IProduct[]) => {
+            this.products = productsList.filter((p: IProduct) =>
+                                        (p.name.toLowerCase()
+                                              .search(searchText.toLowerCase()) !== -1) ? true : false);
+          });
+        } else if (searchText) {
+          this.dataService.getProducts()
+          .subscribe((productsList: IProduct[]) => {
+            this.products = productsList.filter((p: IProduct) =>
+                                        (p.name.toLowerCase()
+                                              .search(searchText.toLowerCase()) !== -1) ? true : false);
+          });
+        } else if (this.category) {
+          this.dataService.getProductsByCategory(this.category)
+                .subscribe((productsList: IProduct[]) => this.products = productsList);
+        } else {
+          // this.filterCategory();
+          this.dataService.getProducts()
+                .subscribe((productsList: IProduct[]) => this.products = productsList);
+        }
+      });
+  }
+
+  clearSearchText() {
+    this.searchText = '';
+    this.filter('');
   }
 }

@@ -10,9 +10,14 @@ import { DataService } from '../core/data.service';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
+  searchText = '';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  search(text) {
+    this.searchText = text;
   }
 }

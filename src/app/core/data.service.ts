@@ -20,7 +20,7 @@ export class DataService {
           );
     }
 
-    getFilteredProducts(category): Observable<IProduct[]> {
+    getProductsByCategory(category): Observable<IProduct[]> {
         return this.http.get<IProduct[]>(this.baseUrl + 'products.json')
             .pipe(
               map(products => {
