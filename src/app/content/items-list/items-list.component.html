@@ -13,9 +13,11 @@
         <h5 class="card-header"> {{ product.name }} </h5>
         <!-- <h4 class="card-header">product image</h4> -->
       <div class="card-body" *ngIf="product.quantity">
-        <p class="mb-0">Price: {{ product.cost}} </p>
-        <p>Quantity on stock {{ product.quantity }} </p>
-        <button (click)="addItem(product)">Add to cart</button>
+        <p class="card-text mb-0">Price: {{ product.cost}} </p>
+        <p class="card-text">Quantity on stock {{ product.quantity }} </p>
+      </div>
+      <div>
+        <button class="card-footer" *ngIf="product.quantity" (click)="addItem(product)">Add to cart</button>
       </div>
       <div class="card-body" *ngIf="!product.quantity">
         <h5> {{ product.name }} </h5>

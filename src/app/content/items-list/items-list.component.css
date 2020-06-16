@@ -1,0 +1,18 @@
+/* button {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+} */
+
+.card-footer {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.card-footer:focus {
+    outline: none;
+}
+
+.card-footer:active {
+    background-color: white;
+}
