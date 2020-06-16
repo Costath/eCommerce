@@ -1,0 +1,32 @@
+/* li > div {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+} */
+
+h4 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2vh;
+}
+
+li:hover {
+    cursor: pointer;
+    background-color: #17a3b817;
+}
+
+li.active {
+    background-color: #17a2b8;
+}
+
+.list-group-horizontal {
+    width: 100vw;
+    justify-content: center;
+    display: inline-flex;
+}
+
+.list-group-horizontal li {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
