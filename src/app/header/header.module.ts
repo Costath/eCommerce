@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header.component';
-import { CategoriesListModule } from '../categories-list/categories-list.module';
+import { FiltersModule } from '../filters/filters.module';
 import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { AppRoutingModule } from '../app-routing.module';
     CommonModule,
     FormsModule,
     AppRoutingModule,
-    CategoriesListModule
+    FiltersModule
   ],
   exports: [
     HeaderComponent

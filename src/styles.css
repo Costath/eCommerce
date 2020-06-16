@@ -40,15 +40,6 @@ router-outlet
     height: 74vh;
 }
 
-app-categories-list {
-    grid-area: categories;
-}
-
-app-items-list {
-    grid-area: items;
-    border-left: 1px darkgray solid;
-}
-
 app-items-list > main > h3 {
     padding-bottom: 2vh;
 }
@@ -61,5 +52,5 @@ app-content {
     min-height: 71vh;
     display: grid;
     grid-template-columns: 25vw 25vw 25vw 25vw;
-    grid-template-areas: "categories items items items";
+    grid-template-areas: "filters items items items";
 }
