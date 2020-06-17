@@ -24,6 +24,7 @@ export class ItemsListComponent implements OnInit {
   set search(val: string) {
     this.Search = val;
     this.searchTextChanged.emit(this.Search);
+    console.log('=====event fired: ' + document.querySelector('input').value);
   }
 
   constructor(private dataService: DataService,
@@ -35,7 +36,7 @@ export class ItemsListComponent implements OnInit {
     this.filter(this.searchText);
 
     this.searchTextChanged
-        .subscribe((searchText: string) => this.filter(searchText));
+        .subscribe((searchText: string) => this.filter(''));
   }
 
   // private filterCategory() {
@@ -68,21 +69,27 @@ export class ItemsListComponent implements OnInit {
       .subscribe(data => {
         this.category = data.get('cat');
 
-        this.searchText = searchText;
+        // this.searchText = searchText;
+        this.searchText = document.querySelector('input').value;
 
-        if (searchText && this.category) {
+
+        console.log('category: ' + this.category);
+        console.log('search text: ' + this.searchText);
+
+
+        if (this.searchText && this.category) {
           this.dataService.getProductsByCategory(this.category)
           .subscribe((productsList: IProduct[]) => {
             this.products = productsList.filter((p: IProduct) =>
                                         (p.name.toLowerCase()
-                                              .search(searchText.toLowerCase()) !== -1) ? true : false);
+                                              .search(this.searchText.toLowerCase()) !== -1) ? true : false);
           });
-        } else if (searchText) {
+        } else if (this.searchText) {
           this.dataService.getProducts()
           .subscribe((productsList: IProduct[]) => {
             this.products = productsList.filter((p: IProduct) =>
                                         (p.name.toLowerCase()
-                                              .search(searchText.toLowerCase()) !== -1) ? true : false);
+                                              .search(this.searchText.toLowerCase()) !== -1) ? true : false);
           });
         } else if (this.category) {
           this.dataService.getProductsByCategory(this.category)
@@ -96,6 +103,7 @@ export class ItemsListComponent implements OnInit {
   }
 
   clearSearchText() {
+    document.querySelector('input').value = '';
     this.searchText = '';
     this.filter('');
   }
