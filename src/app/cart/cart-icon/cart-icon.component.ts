@@ -14,5 +14,6 @@ export class CartIconComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.updateCartQty.subscribe(qty => this.itemsQty = qty);
+    this.cartService.countItems();
   }
 }
