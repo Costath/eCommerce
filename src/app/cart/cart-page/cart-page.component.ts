@@ -14,6 +14,7 @@ export class CartPageComponent implements OnInit {
   cartProducts: IProduct[] = [];
   cartProductsRaw: any[] = [];
   cartTotal = 0;
+  cartQty = 0;
 
   @Output() delete = new EventEmitter();
 
@@ -49,6 +50,7 @@ export class CartPageComponent implements OnInit {
     };
     this.cartProducts.push(newProd);
     this.cartTotal += newProd.cost * newProd.quantity;
+    this.cartQty = this.cartProducts.length;
   }
 
   removeItem(product: IProduct){
@@ -63,5 +65,6 @@ export class CartPageComponent implements OnInit {
       this.cartProducts.splice(index, 1);
     }
     this.cartTotal -= product.cost;
+    this.cartQty = this.cartProducts.length;
   }
 }

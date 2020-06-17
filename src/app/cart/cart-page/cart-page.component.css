@@ -1,7 +1,10 @@
 div.container {
-    width: 70vw;
-    margin-left: 15vw;
-    margin-right: 15vw;
+    width: 80vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: grid;
+    grid-template-areas: "itemsList" "cartInfo";
+    grid-template-columns: 60vw 20vw;
 }
 
 p {
@@ -10,7 +13,21 @@ p {
 }
 
 h5.totalValue {
+    grid-area: "cartInfo";
     float: right;
     margin-right: 2vw;
     margin-top: 3vw;
+    text-align: right;
+    position: fixed;
+    right: 10vw;
+    border-radius: 0.25rem;
+    border-left: 4px solid rgba(0,0,0,.125);
+    border-bottom: 4px solid rgba(0,0,0,.125);
+    padding: 1.25rem 0.75rem;
+    background-color: rgba(0,0,0,.1);
+}
+
+ul {
+    padding-bottom: 10vh;
+    grid-area: "itemsList";
 }

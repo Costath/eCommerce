@@ -1,3 +1,5 @@
 div.btn {
     float: right;
+    position: relative;
+    bottom: 1.5rem;
 }

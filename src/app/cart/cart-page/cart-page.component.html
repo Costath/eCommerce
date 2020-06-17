@@ -6,6 +6,7 @@
         </li>
     </ul>
     <h5 *ngIf="cartProducts.length" class="totalValue">
+        Items quantity: {{ cartQty }}<br/>
         Total: {{ cartTotal | currency }}
     </h5>
 </div>
