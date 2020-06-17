@@ -1,7 +1,7 @@
 <main>
   <h3 *ngIf="category || searchText"> Filters: 
     <span *ngIf="category" class="badge-info rounded p-1">
-      {{ category }} <sup class="btn p-0" [routerLink]="['/products']">X</sup>
+      {{ category }} <sup class="btn p-0" [routerLink]="['/products', '']">X</sup>
     </span> &nbsp;
     <span *ngIf="searchText"class="badge-info rounded p-1">
       {{ searchText }} <sup class="btn p-0" (click)="clearSearchText()">X</sup>

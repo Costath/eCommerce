@@ -10,7 +10,7 @@
         <ul class="list-group list-group-horizontal">
             <li class="list-group-item" *ngFor="let cat of categories" [routerLink]="['/products', cat]" 
                                                                         routerLinkActive="">{{ cat }}</li>
-            <li class="list-group-item" [routerLink]="['/products']" 
+            <li class="list-group-item" [routerLink]="['/products', '']" 
                                         routerLinkActive="">All Products</li>
             
         </ul>
