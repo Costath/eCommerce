@@ -9,9 +9,9 @@ app-items-list {
 
 #filters {
     display: grid;
-    grid-template-rows: 50vh 14vh;
-    grid-template-areas: "categories"
-                         "searchByName";
+    grid-template-rows: 14vh 50vh;
+    grid-template-areas: "searchByName"
+                         "categories";
 }
 
 app-categories-list {

@@ -7,7 +7,8 @@
       {{ searchText }} <sup class="btn p-0" (click)="clearSearchText()">X</sup>
     </span>
   </h3>
-  <h3 *ngIf="!category && !searchText">All products</h3>
+  <!-- <h3 *ngIf="!category && !searchText">All products</h3> -->
+  <h3 *ngIf="!category && !searchText">&nbsp;</h3>
   <div class="card-columns">
     <div class="card" *ngFor="let product of products">
         <h5 class="card-header"> {{ product.name }} </h5>
