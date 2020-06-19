@@ -35,7 +35,6 @@ router-outlet
 app-landing-page,
 app-about-page,
 app-contact-page,
-app-cart-page,
 router-outlet
 {
     height: 74vh;
@@ -54,4 +53,8 @@ app-content {
     display: grid;
     grid-template-columns: 25vw 25vw 25vw 25vw;
     grid-template-areas: "filters items items items";
+}
+
+app-cart-page {
+    min-height: 71vh;
 }
