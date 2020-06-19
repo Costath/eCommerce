@@ -1,7 +1,11 @@
 <strong>{{ cartItem.name }}</strong><br />
-<span class="qty">Quantity: {{ cartItem.quantity }}</span><span *ngIf="!checkout">&nbsp;|&nbsp;</span>
-<span *ngIf="!checkout">{{ cartItem.cost | currency }}</span>
-<span *ngIf="checkout" style="float: right;">{{ cartItem.cost | currency }}</span><br/>
-<span class="category" *ngIf="!checkout">{{ cartItem.category }}</span>
-<div class="btn btn-outline-danger" *ngIf="cartItem.quantity == 1 && !checkout" (click)="onDelete()">Remove item</div>
-<div class="btn btn-outline-danger" *ngIf="cartItem.quantity > 1 && !checkout" (click)="onDelete()">Remove 1 unit</div>
+<span *ngIf="checkout" style="float: right;">{{ cartItem.cost | currency }}</span>
+<span class="qty">Quantity: {{ cartItem.quantity }}</span>
+<span *ngIf="!checkout"><span *ngIf="!checkout">&nbsp;|&nbsp;</span>
+    <span>{{ cartItem.cost | currency }}</span><br/>
+    <span class="category">{{ cartItem.category }}</span>
+    <div class="btn btn-outline-danger" *ngIf="cartItem.quantity == 1" (click)="onDelete()">Remove item</div>
+    <div class="btn btn-outline-danger" *ngIf="cartItem.quantity > 1" (click)="onDelete()">- 1</div>
+    <div class="btn btn-outline-success" (click)="onAdd()">+ 1</div>
+</span>
+

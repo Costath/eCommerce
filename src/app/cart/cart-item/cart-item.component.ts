@@ -9,11 +9,16 @@ export class CartItemComponent implements OnInit {
   @Input() checkout: boolean;
   @Input() cartItem;
   @Output() delete = new EventEmitter();
+  @Output() add = new EventEmitter();
 
   constructor() { }
 
   onDelete() {
     this.delete.emit(this.cartItem);
+  }
+
+  onAdd() {
+    this.add.emit(this.cartItem);
   }
 
   ngOnInit(): void {

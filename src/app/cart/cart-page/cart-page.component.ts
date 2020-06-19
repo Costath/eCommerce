@@ -55,6 +55,17 @@ export class CartPageComponent implements OnInit {
     this.cartQty = this.cartProducts.length;
   }
 
+  addItem(product: IProduct) {
+    this.cartService.addItem(product);
+
+    const index = this.cartProducts.indexOf(product);
+
+    product.quantity++;
+    this.cartProducts.splice(index, 1, product);
+    this.cartTotal += product.cost;
+    this.cartQty = this.cartProducts.length;
+  }
+
   removeItem(product: IProduct){
     this.cartService.removeItem(product);
     this.cartService.countItems();

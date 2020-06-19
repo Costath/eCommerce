@@ -3,3 +3,7 @@ div.btn {
     position: relative;
     bottom: 1.5rem;
 }
+
+.btn {
+    margin-left: 1vw;
+}

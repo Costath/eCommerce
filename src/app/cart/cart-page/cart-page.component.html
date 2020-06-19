@@ -2,7 +2,7 @@
 <div class="container">
     <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let product of cartProducts">
-            <app-cart-item [cartItem]="product" (delete)="removeItem($event)"></app-cart-item>
+            <app-cart-item [cartItem]="product" (add)="addItem($event)" (delete)="removeItem($event)"></app-cart-item>
         </li>
     </ul>
     <div class="totalValue">
