@@ -24,7 +24,6 @@ export class ItemsListComponent implements OnInit {
   set search(val: string) {
     this.Search = val;
     this.searchTextChanged.emit(this.Search);
-    console.log('=====event fired: ' + document.querySelector('input').value);
   }
 
   constructor(private dataService: DataService,
@@ -71,11 +70,6 @@ export class ItemsListComponent implements OnInit {
 
         // this.searchText = searchText;
         this.searchText = document.querySelector('input').value;
-
-
-        console.log('category: ' + this.category);
-        console.log('search text: ' + this.searchText);
-
 
         if (this.searchText && this.category) {
           this.dataService.getProductsByCategory(this.category)

@@ -1,4 +1,7 @@
-<strong>{{ cartItem.name }}</strong> {{ cartItem.cost | currency }} <br />
-Quantity: {{ cartItem.quantity }} <br/> {{ cartItem.category }}
-<div class="btn btn-outline-danger" *ngIf="cartItem.quantity == 1" (click)="onDelete()">Remove item</div>
-<div class="btn btn-outline-danger" *ngIf="cartItem.quantity > 1" (click)="onDelete()">Remove 1 unit</div>
+<strong>{{ cartItem.name }}</strong><br />
+<span class="qty">Quantity: {{ cartItem.quantity }}</span><span *ngIf="!checkout">&nbsp;|&nbsp;</span>
+<span *ngIf="!checkout">{{ cartItem.cost | currency }}</span>
+<span *ngIf="checkout" style="float: right;">{{ cartItem.cost | currency }}</span><br/>
+<span class="category" *ngIf="!checkout">{{ cartItem.category }}</span>
+<div class="btn btn-outline-danger" *ngIf="cartItem.quantity == 1 && !checkout" (click)="onDelete()">Remove item</div>
+<div class="btn btn-outline-danger" *ngIf="cartItem.quantity > 1 && !checkout" (click)="onDelete()">Remove 1 unit</div>

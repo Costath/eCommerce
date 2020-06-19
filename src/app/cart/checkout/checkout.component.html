@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="modal-header">
+        <h5 ngbAutofocus >
+            Confirm your items:
+        </h5>
+        <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let product of cartProducts">
+            <app-cart-item [cartItem]="product" [checkout]="true"></app-cart-item>
+        </li>
+    </ul>
+    <div class="totalValue modal-footer">
+        <button class="btn btn-outline-warning">Place order</button>
+        <h5 *ngIf="cartProducts.length">
+            Total: {{ cartTotal | currency }}
+        </h5>
+    </div>
+</div>

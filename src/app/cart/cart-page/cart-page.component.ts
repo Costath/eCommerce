@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IProduct } from '../../shared/interfaces';
 import { ICartItem } from '../../shared/interfaces';
 import { CartService } from '../../core/cart.service';
 import { DataService } from '../../core/data.service';
+import { CheckoutModalComponent } from '../checkout/checkout.component';
 
 @Component({
   selector: 'app-cart-page',
@@ -12,26 +14,26 @@ import { DataService } from '../../core/data.service';
 })
 export class CartPageComponent implements OnInit {
   cartProducts: IProduct[] = [];
-  cartProductsRaw: any[] = [];
   cartTotal = 0;
   cartQty = 0;
 
   @Output() delete = new EventEmitter();
 
   constructor(private cartService: CartService,
-              private dataService: DataService) {}
+              private dataService: DataService,
+              private modalService: NgbModal) {}
  ngOnInit(): void {
 
-    this.cartProductsRaw = this.cartService.getCartProducts();
-    if (this.cartProductsRaw){
-      if (this.cartProductsRaw.length > 1) {
-        this.cartProductsRaw.forEach(prodRaw => {
+    const cartProductsRaw: any[] = this.cartService.getCartProducts();
+    if (cartProductsRaw){
+      if (cartProductsRaw.length > 1) {
+        cartProductsRaw.forEach(prodRaw => {
           const prod = JSON.parse(prodRaw);
           this.dataService.getProduct(prod.productId)
             .subscribe((p: IProduct) => this.createProductObj(p, prod));
         });
       }else {
-        const prod = JSON.parse(this.cartService.getCartProducts());
+        const prod = JSON.parse(cartProductsRaw[0]);
         this.dataService.getProduct(prod.productId)
             .subscribe((p: IProduct) => this.createProductObj(p, prod));
       }
@@ -66,5 +68,11 @@ export class CartPageComponent implements OnInit {
     }
     this.cartTotal -= product.cost;
     this.cartQty = this.cartProducts.length;
+  }
+
+  openCheckoutModal() {
+    const modalRef = this.modalService.open(CheckoutModalComponent);
+    modalRef.componentInstance.cartProducts = this.cartProducts;
+    modalRef.componentInstance.cartTotal = this.cartTotal;
   }
 }

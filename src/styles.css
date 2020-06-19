@@ -25,6 +25,7 @@ app-content,
 app-about-page,
 app-contact-page,
 app-cart-page,
+app-checkout,
 router-outlet
 {
     grid-area: content;

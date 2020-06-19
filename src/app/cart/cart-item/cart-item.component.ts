@@ -6,6 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
+  @Input() checkout: boolean;
   @Input() cartItem;
   @Output() delete = new EventEmitter();
 

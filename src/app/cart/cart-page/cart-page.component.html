@@ -5,8 +5,14 @@
             <app-cart-item [cartItem]="product" (delete)="removeItem($event)"></app-cart-item>
         </li>
     </ul>
-    <h5 *ngIf="cartProducts.length" class="totalValue">
-        Items quantity: {{ cartQty }}<br/>
-        Total: {{ cartTotal | currency }}
-    </h5>
+    <div class="totalValue">
+        <h5 *ngIf="cartProducts.length">
+            Items quantity: {{ cartQty }}<br/>
+            Total: {{ cartTotal | currency }}
+        </h5>
+        <span (click)="openCheckoutModal()">
+            <strong>Checkout&nbsp;</strong>
+            <img alt="cashier image" src="../../../assets/images/checkout.png">
+        </span>
+    </div>
 </div>
