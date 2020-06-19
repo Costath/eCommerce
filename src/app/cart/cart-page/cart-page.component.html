@@ -4,13 +4,16 @@
         <li class="list-group-item" *ngFor="let product of cartProducts">
             <app-cart-item [cartItem]="product" (add)="addItem($event)" (delete)="removeItem($event)"></app-cart-item>
         </li>
+        <li class="clearCart">
+            <div class="btn btn-danger">Clear Cart</div>
+        </li>
     </ul>
     <div class="totalValue">
         <h5 *ngIf="cartProducts.length">
             Items quantity: {{ cartQty }}<br/>
             Total: {{ cartTotal | currency }}
         </h5>
-        <span (click)="openCheckoutModal()">
+        <span class="openModal" (click)="openCheckoutModal()">
             <strong>Checkout&nbsp;</strong>
             <img alt="cashier image" src="../../../assets/images/checkout.png">
         </span>

@@ -39,9 +39,15 @@ img {
     height: 2rem;
 }
 
-span:hover {
+span.openModal:hover {
     cursor: pointer;
     background-color: rgba(0,0,0,.1);
     padding: 1vh 1vw;
     border-radius: 0.8rem;
+}
+
+.clearCart {
+    list-style-type: none;
+    margin-top: 2vh;
+    align-self: center;
 }
