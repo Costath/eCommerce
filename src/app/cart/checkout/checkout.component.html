@@ -13,9 +13,13 @@
         </li>
     </ul>
     <div class="totalValue modal-footer">
-        <button class="btn btn-outline-warning">Place order</button>
+        <button class="btn btn-outline-warning" (click)="modal.close(thankYouModal)">Place order</button>
         <h5 *ngIf="cartProducts.length">
             Total: {{ cartTotal | currency }}
         </h5>
     </div>
 </div>
+
+<ng-template #thankYouModal let-modal>
+    <div class="modal-body thankYouModal">Thank you! Your order has been placed :)</div>
+</ng-template>

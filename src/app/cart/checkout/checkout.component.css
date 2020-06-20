@@ -5,3 +5,7 @@ h5 {
 .itemCost {
     float: right;
 }
+
+.thankYouModal {
+    align-self: center;
+}

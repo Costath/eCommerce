@@ -83,20 +83,29 @@ export class CartPageComponent implements OnInit {
   }
 
   openCheckoutModal() {
-    const modalRef = this.modalService.open(CheckoutModalComponent);
+    const modalRef = this.modalService.open(CheckoutModalComponent, { centered: true});
     modalRef.componentInstance.cartProducts = this.cartProducts;
     modalRef.componentInstance.cartTotal = this.cartTotal;
+
+    modalRef.result.then(result => {
+      this.modalService.open(result, { centered: true });
+      this.clearCartData();
+    });
   }
 
   clearCart(confirmationModal) {
-    this.modalService.open(confirmationModal, { centered: true}).result.then((result) => {
+    this.modalService.open(confirmationModal, { centered: true}).result.then(result => {
       if (result === 'clear') {
-        this.cartService.clearCart();
-        this.cartProducts.splice(0, this.cartProducts.length);
-
-        this.cartTotal = 0;
-        this.cartQty = 0;
+        this.clearCartData();
       }
     }, () => {}); // The second argument function resolves onRejected, if not provided shows error on console when rejected
+  }
+
+  private clearCartData() {
+    this.cartService.clearCart();
+    this.cartProducts.splice(0, this.cartProducts.length);
+
+    this.cartTotal = 0;
+    this.cartQty = 0;
   }
 }
