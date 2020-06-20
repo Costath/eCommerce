@@ -21,8 +21,4 @@ export class CheckoutModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  placeOrder() {
-
-  }
 }
