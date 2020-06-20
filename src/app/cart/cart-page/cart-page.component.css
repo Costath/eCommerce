@@ -7,7 +7,7 @@ div.container {
     grid-template-columns: 60vw 20vw;
 }
 
-p {
+p#noProductsP {
     text-align: center;
     margin-top: 5vw;
 }

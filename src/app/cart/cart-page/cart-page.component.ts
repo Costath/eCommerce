@@ -22,7 +22,8 @@ export class CartPageComponent implements OnInit {
   constructor(private cartService: CartService,
               private dataService: DataService,
               private modalService: NgbModal) {}
- ngOnInit(): void {
+
+  ngOnInit(): void {
 
     const cartProductsRaw: any[] = this.cartService.getCartProducts();
     if (cartProductsRaw){
@@ -85,5 +86,17 @@ export class CartPageComponent implements OnInit {
     const modalRef = this.modalService.open(CheckoutModalComponent);
     modalRef.componentInstance.cartProducts = this.cartProducts;
     modalRef.componentInstance.cartTotal = this.cartTotal;
+  }
+
+  clearCart(confirmationModal) {
+    this.modalService.open(confirmationModal, { centered: true}).result.then((result) => {
+      if (result === 'clear') {
+        this.cartService.clearCart();
+        this.cartProducts.splice(0, this.cartProducts.length);
+
+        this.cartTotal = 0;
+        this.cartQty = 0;
+      }
+    }, () => {}); // The second argument function resolves onRejected, if not provided shows error on console when rejected
   }
 }

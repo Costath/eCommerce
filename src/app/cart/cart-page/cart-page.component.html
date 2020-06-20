@@ -1,15 +1,15 @@
-<p *ngIf="!cartProducts.length">Add some products to your cart and you'll find them here :)</p>
+<p id="noProductsP" *ngIf="!cartProducts.length">Add some products to your cart and you'll find them here :)</p>
 <div class="container">
     <ul class="list-group list-group-flush">
         <li class="list-group-item" *ngFor="let product of cartProducts">
             <app-cart-item [cartItem]="product" (add)="addItem($event)" (delete)="removeItem($event)"></app-cart-item>
         </li>
-        <li class="clearCart">
-            <div class="btn btn-danger">Clear Cart</div>
+        <li *ngIf="cartProducts.length" class="clearCart">
+            <div class="btn btn-danger" (click)="clearCart(confirmationModal)">Clear Cart</div>
         </li>
     </ul>
-    <div class="totalValue">
-        <h5 *ngIf="cartProducts.length">
+    <div *ngIf="cartProducts.length" class="totalValue">
+        <h5>
             Items quantity: {{ cartQty }}<br/>
             Total: {{ cartTotal | currency }}
         </h5>
@@ -19,3 +19,21 @@
         </span>
     </div>
 </div>
+
+<ng-template #confirmationModal let-modal>
+    <div>
+        <div class="modal-header" aria-describedby="modal-title">
+            <h5>Confirm</h5>
+            <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>Do you wish to empty your cart?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline-warning" (click)="modal.close('clear')">Clear</button>
+            <button class="btn btn-outline-success" (click)="modal.close()" ngbAutofocus>Maintain</button>
+        </div>
+    </div>
+</ng-template>

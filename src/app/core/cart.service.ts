@@ -90,4 +90,15 @@ export class CartService {
     }
     this.updateCartQty.emit(this.cartQty);
   }
+
+  clearCart() {
+    const cart = localStorage.getItem('cart');
+
+    if (cart !== null) {
+      localStorage.removeItem('cart');
+
+      this.cartQty = 0;
+      this.updateCartQty.emit(this.cartQty);
+    }
+  }
 }
