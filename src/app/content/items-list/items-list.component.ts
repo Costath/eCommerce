@@ -31,28 +31,11 @@ export class ItemsListComponent implements OnInit {
               private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // this.filterCategory();
     this.filter(this.searchText);
 
     this.searchTextChanged
         .subscribe((searchText: string) => this.filter(''));
   }
-
-  // private filterCategory() {
-  //   this.route.paramMap
-  //     .subscribe(data => {
-  //       this.category = data.get('cat');
-
-  //       if (this.category) {
-  //         this.dataService.getProductsByCategory(this.category)
-  //           .subscribe((productsList: IProduct[]) => this.products = productsList);
-  //       }
-  //       else {
-  //         this.dataService.getProducts()
-  //           .subscribe((productsList: IProduct[]) => this.products = productsList);
-  //       }
-  //     });
-  // }
 
   addItem(product: IProduct) {
     this.cartService.addItem(product);
@@ -68,7 +51,6 @@ export class ItemsListComponent implements OnInit {
       .subscribe(data => {
         this.category = data.get('cat');
 
-        // this.searchText = searchText;
         this.searchText = document.querySelector('input').value;
 
         if (this.searchText && this.category) {
@@ -89,7 +71,6 @@ export class ItemsListComponent implements OnInit {
           this.dataService.getProductsByCategory(this.category)
                 .subscribe((productsList: IProduct[]) => this.products = productsList);
         } else {
-          // this.filterCategory();
           this.dataService.getProducts()
                 .subscribe((productsList: IProduct[]) => this.products = productsList);
         }
