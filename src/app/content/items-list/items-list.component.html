@@ -30,12 +30,12 @@
         <p class="card-text mb-0">Price: {{ product.cost}} </p>
         <p class="card-text">Quantity on stock {{ product.quantity }} </p>
       </div>
-      <div>
-        <button class="card-footer" *ngIf="product.quantity" (click)="addItem(product)">Add to cart</button>
-      </div>
       <div class="card-body" *ngIf="!product.quantity">
         <h5> {{ product.name }} </h5>
         <p>Out of stock :(</p>
+      </div>
+      <div class="card-footer btn" *ngIf="product.quantity" (click)="addItem(product)">
+        Add to cart
       </div>
     </div>
   </div>

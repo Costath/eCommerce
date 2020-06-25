@@ -1,22 +1,20 @@
-/* button {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
-} */
+.card-header {
+    background-color: transparent;
+    text-align: center;
+}
 
 .card-footer {
     width: 100%;
-    border: 1px solid rgba(0,0,0,.125);
-}
-
-.card-footer:focus {
-    outline: none;
-}
-
-.card-footer:active {
-    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: #17a3b825;
 }
 
 .card-footer:hover {
-    background-color: rgba(0,0,0,.150);
+    background-color: #17a3b844;
+}
+
+.card {
+    border-radius: 10px;
+    background-color: #17a3b80a;
 }
