@@ -11,6 +11,7 @@ import { DataService } from '../core/data.service';
 })
 export class ContentComponent implements OnInit {
   searchText = '';
+  sortOrder = null;
 
   constructor() { }
 
@@ -19,5 +20,9 @@ export class ContentComponent implements OnInit {
 
   search(text) {
     this.searchText = text;
+  }
+
+  sort(order) {
+    this.sortOrder = order;
   }
 }

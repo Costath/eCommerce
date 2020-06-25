@@ -6,11 +6,13 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { AppRoutingModule } from '../app-routing.module';
 import { CartModule } from '../cart/cart.module';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import { OrderItemsComponent } from './order-items/order-items.component';
 
 @NgModule({
   declarations: [
     CategoriesListComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    OrderItemsComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { SearchBoxComponent } from './search-box/search-box.component';
   ],
   exports: [
     CategoriesListComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    OrderItemsComponent
   ]
 })
 export class FiltersModule { }

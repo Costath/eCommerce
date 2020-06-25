@@ -14,6 +14,7 @@ export class ItemsListComponent implements OnInit {
   products: IProduct[] = [];
   category: string;
   searchText: string;
+  orderString: string;
 
   @Output() searchTextChanged = new EventEmitter();
 
@@ -26,6 +27,25 @@ export class ItemsListComponent implements OnInit {
     this.searchTextChanged.emit(this.Search);
   }
 
+  @Output() orderChanged = new EventEmitter();
+
+  private Order: number;
+  @Input() get order() {
+    return this.Order;
+  }
+  set order(val: number) {
+    this.Order = val;
+    this.orderChanged.emit(this.Order);
+
+    if (this.Order === -1) {
+      this.orderString = 'Descending';
+    } else if (this.Order === 1) {
+      this.orderString = 'Ascending';
+    } else {
+      this.orderString = null;
+    }
+  }
+
   constructor(private dataService: DataService,
               private cartService: CartService,
               private route: ActivatedRoute) {}
@@ -35,6 +55,9 @@ export class ItemsListComponent implements OnInit {
 
     this.searchTextChanged
         .subscribe((searchText: string) => this.filter(''));
+
+    this.orderChanged
+        .subscribe((order: boolean) => this.sortProducts());
   }
 
   addItem(product: IProduct) {
@@ -81,5 +104,34 @@ export class ItemsListComponent implements OnInit {
     document.querySelector('input').value = '';
     this.searchText = '';
     this.filter('');
+  }
+
+  sortProducts() {
+    if (this.order !== 0) {
+      this.products.sort((a, b) => {
+        const prodA = a.name;
+        const prodB = b.name;
+
+        let result = 0;
+
+        if (prodA > prodB){
+          result = 1;
+        }else if (prodA < prodB){
+          result = -1;
+        }
+        return this.order === 1 ? result : (result * -1);
+      });
+    } else {
+      this.filter('');
+    }
+  }
+
+  clearSort() {
+    this.order = 0;
+    this.orderString = null;
+
+    document.querySelectorAll('app-order-items > div').forEach(element => {
+      element.classList.remove('activeSortOrder');
+    });
   }
 }

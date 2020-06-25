@@ -1,0 +1,18 @@
+div.btn.activeSortOrder {
+    background-color: #17a2b8;
+    color: white;
+}
+
+div:hover {
+    background-color: #17a3b817;
+}
+
+div {
+    width: 50%;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2vh;
+}

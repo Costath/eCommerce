@@ -1,14 +1,27 @@
 <main>
-  <h3 *ngIf="category || searchText"> Filters: 
-    <span *ngIf="category" class="badge-info rounded p-1">
-      {{ category }} <sup class="btn p-0" [routerLink]="['/products', '']">X</sup>
-    </span> &nbsp;
-    <span *ngIf="searchText"class="badge-info rounded p-1">
-      {{ searchText }} <sup class="btn p-0" (click)="clearSearchText()">X</sup>
+  <h3 *ngIf="category || searchText || orderString; else blankSpace"> Filters: 
+    <span *ngIf="category">
+      <span class="badge-info rounded p-1">
+        {{ category }} <sup class="btn p-0" [routerLink]="['/products', '']">X</sup>
+      </span> &nbsp;
     </span>
+    <span *ngIf="searchText">
+      <span class="badge-info rounded p-1">
+        {{ searchText }} <sup class="btn p-0" (click)="clearSearchText()">X</sup>
+      </span> &nbsp;
+    </span>
+    <span *ngIf="orderString">
+      <span class="badge-info rounded p-1">
+        {{ orderString }} <sup class="btn p-0" (click)="clearSort()">X</sup>
+      </span>
+    </span>
+    &nbsp;
   </h3>
-  <!-- <h3 *ngIf="!category && !searchText">All products</h3> -->
-  <h3 *ngIf="!category && !searchText">&nbsp;</h3>
+
+  <ng-template #blankSpace>
+    <h3>&nbsp;</h3>
+  </ng-template>
+
   <div class="card-columns">
     <div class="card" *ngFor="let product of products">
         <h5 class="card-header"> {{ product.name }} </h5>

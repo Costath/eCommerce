@@ -1,6 +1,7 @@
 <span id="filters">
     <app-categories-list [useRouterLinkActive]="true"></app-categories-list>
     <app-search-box (changed)="search($event)"></app-search-box>
+    <app-order-items (orderChanged)="sort($event)"></app-order-items>
 </span>
-<app-items-list [(search)]="searchText"></app-items-list>
+<app-items-list [(search)]="searchText" [(order)]="sortOrder"></app-items-list>
  
