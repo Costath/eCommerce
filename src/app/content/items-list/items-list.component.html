@@ -34,7 +34,7 @@
         <h5> {{ product.name }} </h5>
         <p>Out of stock :(</p>
       </div>
-      <div class="card-footer btn" *ngIf="product.quantity" (click)="addItem(product)">
+      <div class="btn" *ngIf="product.quantity" (click)="addItem(product)">
         Add to cart
       </div>
     </div>
